@@ -1,0 +1,17 @@
+
+.row {
+    display:flex;
+    flex-direction:row;
+    
+    background-color: aquamarine;
+}
+
+.column {
+    flex: 1;
+    background-color: aqua;
+    
+    height: 180px;
+    margin: 2%;
+    align-items: center;
+    justify-content: space-around;
+}

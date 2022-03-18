@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Making paint on grids</title>
+    <link rel="stylesheet" href = "./style.css">
+  </head>
+
+  <body>
+        <h1>Making some grids</h1>
+        
+          
+
+       
+    <script>
+        
+        const bdy = document.querySelector("body");
+        
+        for(let j = 0;j<4;j++){
+            const rdiv =document.createElement("div");
+            rdiv.className = "row";
+            for (let i = 0 ; i<4;i++){
+                const ncol = document.createElement("div");
+                ncol.className = "column";
+                rdiv.appendChild(ncol);
+            }
+            bdy.appendChild(rdiv);
+        }
+
+        function changeColor(e) {
+            console.log(e);
+            e.target.style.backgroundColor = "white";
+        }
+
+        grids = document.querySelectorAll(".column");
+        grids.forEach(column => { column.addEventListener("mouseover", changeColor)
+            
+        });
+
+
+    </script>
+</body>
+
+<script>
+ 
+</script>
+</html>
