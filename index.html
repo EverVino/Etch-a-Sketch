@@ -7,36 +7,56 @@
   </head>
 
   <body>
-        <h1>Making some grids</h1>
+        <h1>Making some grids: This is you canvas</h1>
+        <button class ="boton">Nueva Grilla</button>
+        <div class ="container">
+
+        </div>
         
           
 
        
     <script>
+        const bdy = document.querySelector(".container");
+        const boton = document.querySelector(".boton");
+
+        function createGrid(n){
         
-        const bdy = document.querySelector("body");
-        
-        for(let j = 0;j<4;j++){
-            const rdiv =document.createElement("div");
-            rdiv.className = "row";
-            for (let i = 0 ; i<4;i++){
-                const ncol = document.createElement("div");
-                ncol.className = "column";
-                rdiv.appendChild(ncol);
+            for(let j = 0;j<n;j++){
+                const rdiv =document.createElement("div");
+                rdiv.className = "row";
+                for (let i = 0 ; i<n;i++){
+                    const ncol = document.createElement("div");
+                    ncol.className = "column";
+                    ncol.style.height = `${960/n}px`;
+                    rdiv.appendChild(ncol);
+                }
+                bdy.appendChild(rdiv);
             }
-            bdy.appendChild(rdiv);
+            grids = document.querySelectorAll(".column");
+            grids.forEach(column => {column.addEventListener("mouseover", changeColor)});
         }
+        
 
         function changeColor(e) {
             console.log(e);
-            e.target.style.backgroundColor = "white";
+            e.target.setAttribute("class", "pasing");
         }
-
-        grids = document.querySelectorAll(".column");
-        grids.forEach(column => { column.addEventListener("mouseover", changeColor)
-            
+        
+        boton.addEventListener("click", function() {
+            let n = parseInt(prompt("Lenght of the grid?", 16));
+            while (n>100){
+                n = parseInt(prompt("Less o equal than 100, please", 100));
+            }
+            while(bdy.lastChild){
+                bdy.removeChild(bdy.lastChild);
+            }
+            createGrid(n);
         });
+        
 
+    createGrid(4);
+    
 
     </script>
 </body>
